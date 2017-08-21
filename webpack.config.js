@@ -11,12 +11,9 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js$/, // babel 转换为兼容性的 js
+                test: /\.(js|jsx)$/, // babel 转换为兼容性的 js/jsx
                 exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['react', 'env'] // latest已废弃改为env
-                }
+                loader: 'babel-loader'
             }
         ]
     }
