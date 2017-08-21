@@ -1,12 +1,23 @@
-// Learn more on how to config.
-// - https://github.com/ant-tool/atool-build#配置扩展
-
-module.exports = function(webpackConfig) {
-  webpackConfig.babel.plugins.push('transform-runtime');
-  webpackConfig.babel.plugins.push(['import', {
-    libraryName: 'antd',
-    style: 'css',
-  }]);
-
-  return webpackConfig;
-};
+module.exports = {
+    entry: './main.js', // 入口文件路径
+    output: {
+        path: '/',
+        filename: 'index.js'
+    },
+    devServer: {
+        inline: true,
+        port: 2333
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.js$/, // babel 转换为兼容性的 js
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['react', 'env'] // latest已废弃改为env
+                }
+            }
+        ]
+    }
+}
