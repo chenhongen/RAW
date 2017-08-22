@@ -15,6 +15,12 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             }
+        ],
+        postLoaders: [
+          {
+            test: /\.js$/,// es5转es3
+            loaders: ['es3ify-loader']
+          }
         ]
     }
 }
